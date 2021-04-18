@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function App() {
   const [name, setName] = useState("")
@@ -27,6 +27,9 @@ export default function App() {
         defaultValue={name}
         onChangeText={text => setName(text)}
       />
+      <TouchableOpacity onPress={() => alert('Hello, world!')} style={styles.button}>
+        <Text style={styles.buttonText}>Pick a photo</Text>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );
@@ -38,5 +41,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  button: {
+    marginTop: 5,
+    backgroundColor: "blue",
+    padding: 20,
+    borderRadius: 5,
+  },
+  buttonText: {
+    fontSize: 20,
+    color: '#fff',
   },
 });
